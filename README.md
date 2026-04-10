@@ -1,11 +1,7 @@
 # raw
-A macOS/ARM64 shell built with raw XNU system calls.
+A tiny shell for macOS (ARM64) that doesn't use any standard libraries. It talks directly to the Apple Silicon kernel using assembly.
 
-### Features
-- **Zero Libraries/Dependencies**: Does not use LibC or standard headers.
-- **Direct Syscalls**: Communicates directly with the XNU kernel.
-
-### Build
+### How to run 
 ```bash
 make
 ./raw
