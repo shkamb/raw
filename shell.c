@@ -7,7 +7,7 @@ long sc(long n, long a1, long a2, long a3) {
     return r;
 }
 
-void main() {
+int main() {
     char b[128];
     char *v[2] = {b, 0};
     while (1) {
@@ -21,4 +21,5 @@ void main() {
         }
         for(volatile int i=0; i<5000000; i++);
     }
+return 0;
 }
