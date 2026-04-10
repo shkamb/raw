@@ -9,8 +9,9 @@ long sc(long n, long a1, long a2, long a3) {
 
 int main() {
     char b[128];
+    char p[128];
     while (1) {
-        sc(0x2000004, 1, (long)"> ", 2);
+        sc(0x2000004, 1, (long)"raw-shell$ ", 11);
         int n = sc(0x2000003, 0, (long)b, 128);
         if (n <= 1) continue;
         b[n-1] = 0;
@@ -22,7 +23,6 @@ int main() {
         char *v[16];
         int i = 0;
         v[i++] = b;
-        
         for (int j = 0; b[j] != 0; j++) {
             if (b[j] == ' ') {
                 b[j] = 0;
@@ -33,10 +33,16 @@ int main() {
 
         if (sc(0x2000002, 0, 0, 0) == 0) {
             sc(0x200003b, (long)v[0], (long)v, 0);
+            
+            char f[128] = "/bin/";
+            int k = 5;
+            for(int l = 0; v[0][l] != 0; l++) f[k++] = v[0][l];
+            f[k] = 0;
+            
+            sc(0x200003b, (long)f, (long)v, 0);
             sc(0x2000001, 1, 0, 0);
         }
-        
-        for(volatile int k=0; k<1000000; k++);
+        for(volatile int m=0; m<1000000; m++);
     }
     return 0;
 }
